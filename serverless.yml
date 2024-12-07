@@ -1,0 +1,25 @@
+service: mango-apis
+
+useDotenv: true
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+  # - serverless-plugin-warmup
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: ${opt:stage, 'dev'}
+  region: ${env:REGION, 'ap-southeast-2'}
+  httpApi:
+    cors: true
+
+package:
+  individually: true
+
+functions:
+  index:
+    handler: src/index.handler
+    events:
+      - httpApi: '*'

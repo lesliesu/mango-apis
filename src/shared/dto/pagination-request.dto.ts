@@ -1,7 +1,14 @@
-export class PaginationRequestDto {
-  page?: number;
-  limit?: number;
-}
+import { IsInt, IsOptional, Max, Min } from 'class-validator';
 
-export const PAGINATION_LIMIT_MAX = 200;
-export const PAGINATION_LIMIT_MIN = 20;
+export class PaginationRequestDto {
+  @IsOptional()
+  @IsInt()
+  @Min(1)
+  page: number = 1;
+
+  @IsOptional()
+  @IsInt()
+  @Min(10)
+  @Max(100)
+  limit: number = 10;
+}

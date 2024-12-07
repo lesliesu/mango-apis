@@ -1,6 +1,6 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { CustomerService } from './customer.service';
-import { PaginationRequestDto } from 'src/shared/dto/pagination-request.dto';
+import { PaginationRequestDto } from '../shared/dto/pagination-request.dto';
 
 @Controller('customers')
 export class CustomerController {
@@ -10,9 +10,4 @@ export class CustomerController {
   findAll(@Query() paginationDto: PaginationRequestDto) {
     return this.customerService.findAll(paginationDto);
   }
-
-  // @Get(':id')
-  // findOne(@Param('id') id: string) {
-  //   return this.customerService.findOne(+id);
-  // }
 }
