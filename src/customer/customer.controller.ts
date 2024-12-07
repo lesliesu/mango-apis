@@ -1,17 +1,18 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { CustomerService } from './customer.service';
+import { PaginationRequestDto } from 'src/shared/dto/pagination-request.dto';
 
-@Controller('customer')
+@Controller('customers')
 export class CustomerController {
   constructor(private readonly customerService: CustomerService) {}
 
   @Get()
-  findAll() {
-    return this.customerService.findAll();
+  findAll(@Query() paginationDto: PaginationRequestDto) {
+    return this.customerService.findAll(paginationDto);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.customerService.findOne(+id);
-  }
+  // @Get(':id')
+  // findOne(@Param('id') id: string) {
+  //   return this.customerService.findOne(+id);
+  // }
 }
