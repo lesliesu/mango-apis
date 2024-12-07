@@ -12,3 +12,10 @@ export class PaginationRequestDto {
   @Max(100)
   limit: number = 10;
 }
+
+export class PaginationResponseDto<T> {
+  data: T[];
+  page: number;
+  limit: number;
+  totalItems: number;
+}

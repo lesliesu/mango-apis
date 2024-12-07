@@ -1,4 +1,6 @@
-export const customersDummyData = [
+import { Customer } from '../customer/entities/customer.entity';
+
+export const customersDummyData: Customer[] = [
   {
     id: 'abcd1',
     firstName: 'Leslie',

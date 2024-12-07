@@ -1,6 +1,6 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { CustomerService } from './customer.service';
-import { PaginationRequestDto } from '../shared/dto/pagination-request.dto';
+import { PaginationRequestDto } from '../shared/dto/pagination.dto';
 
 @Controller('customers')
 export class CustomerController {
