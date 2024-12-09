@@ -20,6 +20,8 @@ $ npm install
 
 ## Running as a NestJS app
 
+(a known issue was found: you have to run `npm offline` once before the following commands can run successfully on this option, this is to be resolved. Probably run with lambda functions locally instead for now)
+
 ```bash
 # development
 $ npm run start
